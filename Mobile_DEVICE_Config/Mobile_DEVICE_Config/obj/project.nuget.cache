@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "EAa8hjq/ex+0fRkB4/1J/8KXJf9P4AsQ8I3o2BFfX/qWqeSpZtZ90JUk2W/lhU1TGlBD8KSqGDrgE8ShXk6Gfw==",
+  "success": true,
+  "projectFilePath": "E:\\Users\\dromanow\\source\\repos\\Mobile_DEVICE_Config\\Mobile_DEVICE_Config\\Mobile_DEVICE_Config\\Mobile_DEVICE_Config.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dromanow\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\plugin.ble\\2.1.1\\plugin.ble.2.1.1.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.4\\sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.licensing\\19.2.0.55\\syncfusion.licensing.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.xamarin.core\\19.2.0.55\\syncfusion.xamarin.core.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.xamarin.datasource\\19.2.0.55\\syncfusion.xamarin.datasource.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\19.2.0.55\\syncfusion.xamarin.gridcommon.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\19.2.0.55\\syncfusion.xamarin.sfcombobox.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.xamarin.sflistview\\19.2.0.55\\syncfusion.xamarin.sflistview.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\syncfusion.xamarin.sfmaskededit\\19.2.0.55\\syncfusion.xamarin.sfmaskededit.19.2.0.55.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\xamarin.essentials\\1.7.1\\xamarin.essentials.1.7.1.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\xamarin.forms\\5.0.0.2337\\xamarin.forms.5.0.0.2337.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
+    "C:\\Users\\dromanow\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}

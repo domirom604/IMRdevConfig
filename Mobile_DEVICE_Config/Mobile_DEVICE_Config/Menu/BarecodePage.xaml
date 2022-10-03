@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="Mobile_DEVICE_Config.BarecodePage">
+    
+    
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        
+
+        <Grid x:Name ="MainPageBareCode" >
+            <StackLayout   Background="Transparent">
+                <Label x:Name="BarecodeInformation" Text="BareCode"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="20" FontAttributes="Bold"  Margin="20,0,0,0" />
+                <zxing:ZXingScannerView Grid.Row="1" IsScanning="True" OnScanResult="ScanResult" IsVisible="True"  />
+               
+
+            </StackLayout>
+
+
+        </Grid>
+
+
+
+    </Grid>
+</ContentPage>

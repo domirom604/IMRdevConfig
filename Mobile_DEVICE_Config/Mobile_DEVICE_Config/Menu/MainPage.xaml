@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:syncmaskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="Mobile_DEVICE_Config.MainPage"   Title="Menu" BackgroundColor="#fff">
+
+   
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+        <ScrollView>
+        <StackLayout>
+            <StackLayout Margin="0,120,0,0">
+
+                    <Button HeightRequest="60" Margin="30,0,30,20" Text="Try Get Serial Number" BackgroundColor="#2981e1" Clicked="TryGetClicked"/>
+                    <ActivityIndicator x:Name="ConnectIndicator" IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" Color="#2981e1"/>
+
+                    <inputLayout:SfTextInputLayout 
+                Hint="Device serial number" 
+                CharMaxLength="8" 
+                VerticalOptions="Center"  
+                HorizontalOptions="Center"
+                HelperText="Enter 8 digit serial number">
+
+
+                        <Entry x:Name="SerialNumberText" TextChanged="serialNumberEntry" Keyboard="Numeric" Text="01000000" TextColor="Black" />
+                        
+             </inputLayout:SfTextInputLayout>
+                   
+            </StackLayout>
+
+        <StackLayout Margin="0,50,0,0">
+            <inputLayout:SfTextInputLayout 
+                Hint="Device cryptography key" 
+                CharMaxLength="32" 
+                VerticalOptions="Center"  
+                HorizontalOptions="Center"
+                HelperText="Enter 32 digit cryptography key">
+                        <Entry  TextChanged="cryptographyKeyEntry" Text="AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD" TextColor="Black" FontSize="16" />
+
+               
+            </inputLayout:SfTextInputLayout>
+
+        </StackLayout>
+
+        <StackLayout Margin="0,30,120,0" >
+            <inputLayout:SfTextInputLayout Hint="Driver" ContainerType="Outlined" >
+                        <combobox:SfComboBox x:Name="comboBoxSelectedItem"  DataSource="{Binding DriversItems}" DisplayMemberPath="Title" SelectedItem="DriverSelected"/>
+            </inputLayout:SfTextInputLayout>
+
+        </StackLayout>
+
+                <StackLayout Margin="0,15,30,0" >
+                    <ImageButton Source="barcode.png" BackgroundColor="Transparent" WidthRequest="290" HeightRequest="145"
+                             VerticalOptions="Start" HorizontalOptions="Center"  Margin="15,5,0,0" Clicked="ShowBarecode" />
+                </StackLayout>
+
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <Grid x:Name="MainMenuView"  BackgroundColor="#2981e1" HeightRequest="500"  VerticalOptions="Start"   
+          AnchorX="0.09" AnchorY="0.09" Rotation="-90">
+
+            
+
+            <Grid x:Name ="MainMenuViewTwo" AnchorX="0.09" AnchorY="0.09" Rotation="90" >
+                <StackLayout Orientation="Horizontal" Spacing="30">
+                    <ImageButton Source="menu.png" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="45"
+                             VerticalOptions="Start" HorizontalOptions="Center"  Margin="15,5,0,0" Clicked="ShowMenu" />
+                    <Label x:Name="TitleText" Text="Links"  Margin="0,15,0,0" VerticalOptions="Start" HorizontalOptions="Center" TextColor="White" FontSize="20" FontAttributes="Bold" />
+
+                    
+                </StackLayout>
+
+            </Grid>
+
+            <Grid x:Name="MenuItemsView"  Grid.Column="1" HorizontalOptions="FillAndExpand" TranslationX="-80" Opacity="0" VerticalOptions="StartAndExpand"  Margin="-90,90,0,0">
+                <StackLayout  VerticalOptions="Center" Spacing="20" BindableLayout.ItemsSource="{Binding MenuItems}" >
+                    
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+
+                            <StackLayout Orientation="Horizontal" Spacing="20">
+
+                                <StackLayout.GestureRecognizers >
+                                    <TapGestureRecognizer Tapped="MenuTapped"/>
+                                    <TapGestureRecognizer Tapped="ItemTapped"/>
+                                </StackLayout.GestureRecognizers>
+
+
+                                <Image Source="{Binding Icon}" WidthRequest="22" HeightRequest="45"
+                                   VerticalOptions="Center" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Title}" TextColor="White" FontSize="22"
+                                   FontAttributes="Bold"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    
+                               
+                            </StackLayout>
+                           
+
+                        </DataTemplate>
+
+
+                    </BindableLayout.ItemTemplate>
+                        
+                </StackLayout>
+            </Grid>
+
+
+
+        </Grid>
+
+        
+
+
+
+
+
+    </Grid>
+
+    
+
+
+
+</ContentPage>

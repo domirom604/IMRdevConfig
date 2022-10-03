@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_DEVICE_Config.Firmware">
+
+   
+    
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+
+
+        <Grid x:Name ="MainPageFirmware" >
+            <StackLayout   Background="Transparent">
+                <Label x:Name="FirmwareInformation" Text="Firmware"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="20" FontAttributes="Bold"  Margin="20,0,0,0" />
+
+                <Label x:Name="textFileNameFile" FontSize="Large" Text="File:"  TextColor="Black" Margin="10,50,0,0" />
+                <Label x:Name="textFileName" FontSize="Large" Text="..."  TextColor="#EFEFEF" Margin="70,-43,20,0" BackgroundColor="Gray"/>
+                <StackLayout>
+
+                    <Button Text="Load File" BackgroundColor="#2981e1" Clicked="Load_file_clicked" Margin="0,40,0,0"/>
+
+                </StackLayout>
+
+                <Label x:Name="progressBar"  VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" Text=""  TextColor="Black" Margin="0,250,0,0" BackgroundColor="Transparent"/>
+                
+            </StackLayout>
+            
+
+            <Grid x:Name ="ProgramGrid" VerticalOptions="Start"  HorizontalOptions="Start" Margin="30,295,0,0">
+                <StackLayout>
+                    <Button Text="Program" BackgroundColor="#2981e1" Clicked="Program_button_tapped" />
+
+                </StackLayout>
+            </Grid>
+
+            <Grid x:Name ="BreakGrid" VerticalOptions="Start"  HorizontalOptions="EndAndExpand" Margin="0,295,30,0">
+                <StackLayout>
+                    <Button Text="Break" BackgroundColor="#2981e1" Clicked="Break_button_tapped" />
+
+                </StackLayout>
+            </Grid>
+            <ActivityIndicator x:Name="ProgrammIndicator" IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center" Color="#2981e1"/>
+            
+        </Grid>
+
+        
+
+    </Grid>
+</ContentPage>

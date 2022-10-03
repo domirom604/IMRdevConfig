@@ -1,0 +1,844 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_DEVICE_Config.Apulse_xxx6_xxx1">
+
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+
+
+        <Grid x:Name ="MainPageApulse_xxx6_xxx1" >
+            <StackLayout   Background="Transparent">
+                <Label x:Name="TitleTextPlugins" Text="Plugin:"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+                <Label x:Name="TitleTextLoadedDriver" Text="a"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+
+                <StackLayout Margin="-150,640,0,0" HorizontalOptions="Center" >
+                    <Button Text="  Get  " BackgroundColor="#2981e1" Clicked="GetCommand"  />
+                </StackLayout>
+
+
+
+                <StackLayout Margin="170,-55,0,0"  HorizontalOptions="Center">
+                    <Button Text="Set" BackgroundColor="#2981e1"  Clicked="SetCommand"/>
+                </StackLayout>
+
+            </StackLayout>
+
+
+
+            <Grid  VerticalOptions="Start"  HeightRequest="630"  Margin="10,70,10,0" BackgroundColor="Transparent" >
+
+                <ScrollView VerticalOptions="FillAndExpand">
+                    
+                    <StackLayout   Background="white" >
+
+                        <Label Text="" VerticalOptions="Start" HorizontalOptions="Center"/>
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AccelerometrModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="ACCELEROMETR MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+                        <Grid x:Name="accelerometr_module"   HeightRequest="0" BackgroundColor="#EFEFEF" Opacity="0"  Margin="0,0,0,0">
+
+                            
+                            
+                            <ScrollView VerticalOptions="FillAndExpand">
+                                <StackLayout   Background="white">
+                                    <StackLayout   Orientation="Horizontal" Spacing="10">
+                                        <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="AccelerometrRedout"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                        <Button Text="ACCELEROMETER READOUT"  BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+                                         
+                                        
+                                    </StackLayout>
+
+
+                                    <Grid x:Name="accelerometr_readout"   HeightRequest="0" BackgroundColor="White" Opacity="0"  Margin="10,0,0,0">
+                                        <ListView x:Name="listViewAccelerometrReadoutOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding accelerometrReadoutOMBname}">
+                                            <ListView.ItemTemplate >
+                                                <DataTemplate >
+                                                    <ViewCell>
+                                                        <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                            Margin="10,0,0,0">
+
+                                                            <CheckBox x:Name="IsChecks"  CheckedChanged="OnSelection"    IsChecked="{Binding IsCheck}"  Color="Gray"/>
+                                                            <Button Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black"  FontSize="8" FontAttributes="Bold" 
+                                                              WidthRequest="240" HeightRequest="50" />
+
+                                                            <Entry Text="{Binding omb_values}" FontSize="13" BackgroundColor="#909090" WidthRequest="80"/>
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </Grid>
+
+                                    <ListView x:Name="listViewAccelerometrOMB" IsPullToRefreshEnabled="True" BackgroundColor="white" SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding accelerometrOMBname}">
+                                        <ListView.ItemTemplate >
+                                            <DataTemplate >
+                                                <ViewCell>
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                        <CheckBox x:Name="check_box" CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray"/>
+                                                        <Button Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="Black" FontSize="8" FontAttributes="Bold" 
+                                                          WidthRequest="240" HeightRequest="50"/>
+
+                                                        <Entry x:Name="entry_AccelerometrOMB" Text="{Binding omb_values}"  BackgroundColor="{Binding colors}"  FontSize="13"  WidthRequest="80"/>
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                    
+                                </StackLayout>
+                            </ScrollView>
+
+                        </Grid>
+
+                        
+                        
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ArchiveModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="ARCHIVE MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="archive_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewArchiveOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding archiveOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewArchiveOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ConfigurationModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="CONFIGURATION MODULE"  BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="configuration_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewConfigurationOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding configurationOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewConfigurationOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+                        
+                        
+                        
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CounterModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="COUNTER MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+                        <Grid x:Name="counter_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewCounterOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding counterOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry TextChanged="changed" Text="{Binding omb_values}" FontSize="13" BackgroundColor="#909090" WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BleModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="BLE MODULE"  BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+                        
+                        <Grid x:Name="ble_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewBleOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding bleOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewBleOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DatalinksModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="DATALINKS MODULE"  BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="datalinks_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewDatalinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding datalinksOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewDatalinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DebugModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="DEBUG MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="debug_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewDebuglinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding debugOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewDebuglinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FlashModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="FLASH MODULE"  BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="flash_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewFlashlinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding flashOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewFlashlinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PowerModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="POWER MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="power_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewPowerlinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding powerOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewPowerlinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="RWmbusModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="RWMBUS MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="rwmbus_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewRwmbuslinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding rWmbusOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewRwmbuslinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="RadioModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="RADIO MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+                        <Grid x:Name="radio_module"   HeightRequest="0" BackgroundColor="White" Opacity="0"  Margin="0,0,0,0">
+
+
+
+                            <ScrollView VerticalOptions="FillAndExpand">
+                                <StackLayout   Background="white">
+                                    <StackLayout   Orientation="Horizontal" Spacing="10">
+                                        <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="DeviceWmbusModule"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                        <Button Text="DEVICE WMBUS MODE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+
+                                    </StackLayout>
+
+
+                                    <Grid x:Name="device_wmbus_module"   HeightRequest="0" BackgroundColor="White" Opacity="0"  Margin="10,0,0,0">
+                                        <ListView x:Name="listViewWmbusOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding radioWmbusOMBname}">
+                                            <ListView.ItemTemplate >
+                                                <DataTemplate >
+                                                    <ViewCell>
+                                                        <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                            Margin="10,0,0,0">
+
+                                                            <CheckBox x:Name="IsChecks"  CheckedChanged="OnSelection"    IsChecked="{Binding IsCheck}"  Color="Gray"/>
+                                                            <Button Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                              WidthRequest="240" HeightRequest="50" />
+
+                                                            <Entry Text="{Binding omb_values}" FontSize="13" BackgroundColor="#909090" WidthRequest="80"/>
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </Grid>
+
+                                    <ListView x:Name="listViewRadioOMB" IsPullToRefreshEnabled="True"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding radioOMBname}">
+                                        <ListView.ItemTemplate >
+                                            <DataTemplate >
+                                                <ViewCell>
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                        <CheckBox x:Name="check_box" CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray"/>
+                                                        <Button Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                          WidthRequest="240" HeightRequest="50"/>
+
+                                                        <Entry x:Name="listViewRadioOMB" Text="{Binding omb_values}"  BackgroundColor="{Binding colors}"  FontSize="13"  WidthRequest="80"/>
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+
+                                </StackLayout>
+                            </ScrollView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="RTCModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="RTC MODULE"  BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="rtc_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewRTClinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding rtcOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewRTClinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SmopModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="SMOP MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="smop_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewSmoplinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding smopOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewSmoplinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TemperatureModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="TEMPERATURE MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="temperature_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewTemperaturelinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding temperatureOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewTemperaturelinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="UserconfigModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="USERCONFIG MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="userconfig_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewUserconfigOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding userconfigOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewUserconfigOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="WAN3Module"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="WAN3 MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="wan3_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewWan3linksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding wan3OMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewWan3linksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+
+
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image Source="wsk.png" WidthRequest="22" HeightRequest="45">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="WmbusModule"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="WMBUS MODULE" BackgroundColor="#EFEFEF" TextColor="black" WidthRequest="322" />
+
+                        </StackLayout>
+
+                        <Grid x:Name="wmbus_module" HeightRequest="0" BackgroundColor="White" Opacity="0">
+                            <ListView x:Name="listViewWmbuslinksOMB"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True" ItemsSource="{Binding wmbusOMBname}">
+                                <ListView.ItemTemplate >
+
+                                    <DataTemplate >
+
+                                        <ViewCell>
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" 
+                                                    Margin="10,0,0,0">
+
+                                                <CheckBox CheckedChanged="OnSelection" IsChecked="{Binding IsCheck}" Color="Gray" />
+                                                <Button  Text="{Binding omb_name}" BackgroundColor="#EFEFEF" TextColor="black" FontSize="8" FontAttributes="Bold" 
+                                                    WidthRequest="240" HeightRequest="50"/>
+
+                                                <Entry x:Name="listViewWmbuslinksOMB" TextChanged="changed" Text="{Binding omb_values}" BackgroundColor="{Binding colors}" FontSize="13"  WidthRequest="80"/>
+
+
+                                            </StackLayout>
+
+                                        </ViewCell>
+
+                                    </DataTemplate>
+
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+
+                        </Grid>
+                        
+                        
+                        
+
+
+
+
+
+
+                    </StackLayout>
+                    
+                    
+                    
+                    
+                    
+                </ScrollView>
+
+            </Grid>
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+    
+</ContentPage>

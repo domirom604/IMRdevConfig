@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile_DEVICE_Config.Settings">
+    
+    <ContentPage.Content  Background="Transparent">
+        <StackLayout   Background="Transparent">
+            <Label x:Name="TitleText" Text="Settings"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

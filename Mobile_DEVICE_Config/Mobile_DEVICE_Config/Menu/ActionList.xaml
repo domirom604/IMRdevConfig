@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:local="clr-namespace:Mobile_DEVICE_Config"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="Mobile_DEVICE_Config.ActionList" >
+
+    <!--ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add item" Command="{Binding AddItemCommand}"/>
+    </ContentPage.ToolbarItems-->
+    
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+       
+        <Grid x:Name ="MainActionList" BackgroundColor="White">
+            <Label Text="ActionList" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Medium" TextColor="Black" />
+
+            <StackLayout Margin="30,60,0,0"  HorizontalOptions="Start">
+                <Button Text="Add new command" BackgroundColor="#2981e1" Clicked="AddNewCommandEvent" />
+            </StackLayout>
+
+            
+
+            <StackLayout Margin="0,0,0,10"  VerticalOptions="End" HorizontalOptions="Center">
+                <Button Text="   Send   " BackgroundColor="#2981e1" Clicked="Send"/>
+            </StackLayout>
+             
+            
+            
+            <Grid  HeightRequest="550" Margin="0,130,0,70"  >
+                <StackLayout   Background="#EFEFEF" >
+                    
+                    <Label Text="" VerticalOptions="Start" HorizontalOptions="Center"/>
+                    <ListView x:Name="MylistTest"  SeparatorVisibility="Default" Footer="" HasUnevenRows="True"  
+                              IsPullToRefreshEnabled="true" Refreshing="ListView_Refreshing" ItemSelected="listViewAction_selected" >
+                        
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+
+                                <ViewCell>
+                                       
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" 
+                                                    Margin="0,0,0,0">
+
+                                        <Button Text="{Binding Name}" TextColor="#EFEFEF" FontSize="16" FontAttributes="Bold" 
+                                                    Clicked="ListActionTapingRecognizer"   WidthRequest="250" HeightRequest="50"/>
+
+                                        <Image Source="{Binding DeleteImage}" WidthRequest="22" HeightRequest="45"
+                                                VerticalOptions="Center" HorizontalOptions="Start">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="DeleteItemTapped"/>
+
+                                            </Image.GestureRecognizers>
+
+                                        </Image>
+                                               
+
+
+
+
+
+
+                                    </StackLayout>
+                                       
+                                </ViewCell>
+
+                            </DataTemplate>
+                    </ListView.ItemTemplate>
+                  </ListView>
+
+                </StackLayout>
+            </Grid>
+
+        </Grid>
+    </Grid>
+     
+    
+</ContentPage>
